@@ -52,4 +52,37 @@ export const projects: Project[] = [
     highlight: "Clean OOP architecture with 95%+ test coverage",
     role: "Academic Project",
   },
+  {
+    title: "Website Refresh Showreel",
+    slug: "showreel111",
+    description:
+      "A visually stunning one-page website showcasing smooth transitions, bold geometry, and story-driven motion. Features animated 3D pyramid patterns, interactive gradient prisms, and scroll-triggered transformations optimized for 60fps performance.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Showreel111",
+    liveUrl: "https://showreel111.vercel.app/",
+    highlight: "Creative animations with hardware-accelerated transforms",
+    role: "Solo Project",
+  },
+  {
+    title: "Budget-Friendly Website Template",
+    slug: "budget-friendly-website",
+    description:
+      "A clean, fast, and low-cost website template built for small businesses and startups. SEO-optimized, fully responsive with mobile-first design, featuring subtle CSS-only animations and growth-ready architecture for CMS and API integration.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "SEO"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/budget-friendly-website",
+    liveUrl: "https://budget-friendly-website.vercel.app/",
+    highlight: "Performance-first approach with zero heavy libraries",
+    role: "Solo Project",
+  },
+  {
+    title: "Travel Lab Website & Brand Kit",
+    slug: "travel-lap",
+    description:
+      "Premium static website and brand identity for a boutique advisory business focused on the ANZ travel ecosystem. Features dark luxe aesthetic with metallic copper accents, architectural imagery, and comprehensive brand guidelines for multi-platform deployment.",
+    tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/travel-lap",
+    liveUrl: "https://travel-lap.vercel.app/",
+    highlight: "Complete brand kit with Webflow/WordPress adaptation guides",
+    role: "Solo Project",
+  },
 ];
