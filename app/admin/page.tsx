@@ -20,7 +20,7 @@ export default function AdminPage() {
   const [error, setError] = useState("");
 
   // Simple password check (in production, use proper auth)
-  const ADMIN_PASSWORD = "omar2025"; // Change this to your secure password
+  const ADMIN_PASSWORD = "34023012563Meer@"; // Change this to your secure password
 
   useEffect(() => {
     if (isAuthenticated) {
