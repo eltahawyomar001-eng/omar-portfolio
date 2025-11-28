@@ -98,7 +98,8 @@ export default function Hero() {
 
               {/* Secondary Button */}
               <a
-                href="#"
+                href="/cv.pdf"
+                download="Omar_Rageh_Resume.pdf"
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-accent/30 text-foreground text-sm sm:text-base font-medium hover:border-accent/50 hover:bg-accent/5 transition-all"
                 aria-label="Download my CV"
               >
