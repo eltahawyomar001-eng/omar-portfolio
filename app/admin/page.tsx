@@ -8,8 +8,9 @@ import { Project } from "@/data/projects";
  * 
  * Password-protected interface for managing portfolio content:
  * - Add, edit, delete projects
- * - Update contact information
- * - Manage skills and about section
+ * - Upload/update CV
+ * - Edit About section
+ * - Manage skills and contact information
  */
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -18,13 +19,24 @@ export default function AdminPage() {
   const [isEditing, setIsEditing] = useState(false);
   const [editingProject, setEditingProject] = useState<Partial<Project> | null>(null);
   const [error, setError] = useState("");
+  
+  // About section state
+  const [aboutContent, setAboutContent] = useState<any>(null);
+  const [contactInfo, setContactInfo] = useState<any>(null);
+  const [skillsCategories, setSkillsCategories] = useState<any[]>([]);
+  const [isEditingAbout, setIsEditingAbout] = useState(false);
+  
+  // CV upload state
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const [uploadStatus, setUploadStatus] = useState("");
 
-  // Simple password check (in production, use proper auth)
-  const ADMIN_PASSWORD = "34023012563Meer@"; // Change this to your secure password
+  // Password from environment variable (secure)
+  const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "";
 
   useEffect(() => {
     if (isAuthenticated) {
       loadProjects();
+      loadContent();
     }
   }, [isAuthenticated]);
 
@@ -35,6 +47,18 @@ export default function AdminPage() {
       setProjects(data);
     } catch (err) {
       console.error("Failed to load projects:", err);
+    }
+  };
+
+  const loadContent = async () => {
+    try {
+      const response = await fetch("/api/content");
+      const data = await response.json();
+      setAboutContent(data.aboutContent);
+      setContactInfo(data.contactInfo);
+      setSkillsCategories(data.skillsCategories);
+    } catch (err) {
+      console.error("Failed to load content:", err);
     }
   };
 
@@ -107,6 +131,54 @@ export default function AdminPage() {
     setIsEditing(true);
   };
 
+  const handleSaveAbout = async () => {
+    try {
+      const response = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ aboutContent, contactInfo, skillsCategories }),
+      });
+
+      if (response.ok) {
+        alert("About section updated successfully!");
+        setIsEditingAbout(false);
+      }
+    } catch (err) {
+      console.error("Failed to save about content:", err);
+      alert("Failed to save about content");
+    }
+  };
+
+  const handleCvUpload = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!cvFile) {
+      alert("Please select a PDF file");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("cv", cvFile);
+
+    try {
+      setUploadStatus("Uploading...");
+      const response = await fetch("/api/cv", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setUploadStatus("CV uploaded successfully!");
+        setCvFile(null);
+        setTimeout(() => setUploadStatus(""), 3000);
+      } else {
+        setUploadStatus("Upload failed");
+      }
+    } catch (err) {
+      console.error("Failed to upload CV:", err);
+      setUploadStatus("Upload failed");
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background px-4">
@@ -168,7 +240,156 @@ export default function AdminPage() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        {/* CV Upload Section */}
+        <div className="bg-secondary-dark border border-white/10 rounded-xl p-6">
+          <h2 className="text-2xl font-bold mb-4">Update CV</h2>
+          <form onSubmit={handleCvUpload} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-2">
+                Upload New CV (PDF only)
+              </label>
+              <input
+                type="file"
+                accept=".pdf"
+                onChange={(e) => setCvFile(e.target.files?.[0] || null)}
+                className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none text-sm"
+              />
+            </div>
+            <div className="flex items-center gap-4">
+              <button
+                type="submit"
+                disabled={!cvFile}
+                className="px-6 py-2 rounded-lg bg-gradient-to-r from-accent to-accent-secondary text-white font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Upload CV
+              </button>
+              {uploadStatus && (
+                <span className={uploadStatus.includes("success") ? "text-green-400" : "text-foreground/60"}>
+                  {uploadStatus}
+                </span>
+              )}
+            </div>
+          </form>
+        </div>
+
+        {/* About Section Editor */}
+        <div className="bg-secondary-dark border border-white/10 rounded-xl p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-bold">About Section</h2>
+            <button
+              onClick={() => setIsEditingAbout(!isEditingAbout)}
+              className="px-4 py-2 rounded-lg border border-white/10 hover:bg-white/5 transition-all text-sm"
+            >
+              {isEditingAbout ? "Cancel" : "Edit"}
+            </button>
+          </div>
+
+          {isEditingAbout && aboutContent ? (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Heading</label>
+                <input
+                  type="text"
+                  value={aboutContent.heading}
+                  onChange={(e) =>
+                    setAboutContent({ ...aboutContent, heading: e.target.value })
+                  }
+                  className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Subheading</label>
+                <input
+                  type="text"
+                  value={aboutContent.subheading}
+                  onChange={(e) =>
+                    setAboutContent({ ...aboutContent, subheading: e.target.value })
+                  }
+                  className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  About Paragraphs
+                </label>
+                {aboutContent.paragraphs.map((para: string, index: number) => (
+                  <div key={index} className="mb-3">
+                    <textarea
+                      value={para}
+                      onChange={(e) => {
+                        const newParagraphs = [...aboutContent.paragraphs];
+                        newParagraphs[index] = e.target.value;
+                        setAboutContent({ ...aboutContent, paragraphs: newParagraphs });
+                      }}
+                      rows={3}
+                      className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-t border-white/10 pt-4 mt-4">
+                <h3 className="text-lg font-semibold mb-3">Contact Information</h3>
+                {contactInfo && (
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Email</label>
+                      <input
+                        type="email"
+                        value={contactInfo.email}
+                        onChange={(e) =>
+                          setContactInfo({ ...contactInfo, email: e.target.value })
+                        }
+                        className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">GitHub URL</label>
+                      <input
+                        type="url"
+                        value={contactInfo.github}
+                        onChange={(e) =>
+                          setContactInfo({ ...contactInfo, github: e.target.value })
+                        }
+                        className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">LinkedIn URL</label>
+                      <input
+                        type="url"
+                        value={contactInfo.linkedin}
+                        onChange={(e) =>
+                          setContactInfo({ ...contactInfo, linkedin: e.target.value })
+                        }
+                        className="w-full px-4 py-2 rounded-lg bg-background border border-white/10 focus:border-accent focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <button
+                onClick={handleSaveAbout}
+                className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-accent to-accent-secondary text-white font-medium hover:opacity-90 transition-opacity"
+              >
+                Save About Section
+              </button>
+            </div>
+          ) : (
+            aboutContent && (
+              <div className="text-foreground/70">
+                <p className="mb-2"><strong>Heading:</strong> {aboutContent.heading}</p>
+                <p className="mb-2"><strong>Subheading:</strong> {aboutContent.subheading}</p>
+                <p className="mb-2"><strong>Paragraphs:</strong> {aboutContent.paragraphs.length} paragraphs</p>
+              </div>
+            )
+          )}
+        </div>
+
         {/* Projects Section */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-6">

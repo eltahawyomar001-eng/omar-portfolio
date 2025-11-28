@@ -3,7 +3,34 @@
 ## Accessing the Admin Panel
 
 1. Navigate to: `https://your-portfolio-url.vercel.app/admin`
-2. Enter the admin password: `omar2025` (change this in `app/admin/page.tsx`)
+2. Enter your admin password (stored in environment variables)
+
+## Initial Setup
+
+### Local Development
+
+1. Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Edit `.env.local` and set your password:
+   ```
+   NEXT_PUBLIC_ADMIN_PASSWORD=your-secure-password-here
+   ```
+
+3. **IMPORTANT**: Never commit `.env.local` to git (it's already in .gitignore)
+
+### Vercel Deployment
+
+1. Go to your Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add a new variable:
+   - **Name**: `NEXT_PUBLIC_ADMIN_PASSWORD`
+   - **Value**: Your secure password (e.g., `34023012563Meer@`)
+   - **Environment**: Production, Preview, Development (select all)
+4. Click **Save**
+5. Redeploy your site for changes to take effect
 
 ## Features
 
@@ -24,21 +51,45 @@
 
 ## Security Notes
 
-### Changing the Password
+### Environment Variables (Current Implementation)
 
-Edit `app/admin/page.tsx`, line 23:
-```typescript
-const ADMIN_PASSWORD = "your-new-secure-password";
-```
+The password is now stored in `.env.local` file and Vercel environment variables:
+- **Local**: `.env.local` (not committed to git)
+- **Production**: Vercel Environment Variables
 
-### Production Security Recommendations
+### Important Security Considerations
 
-For production use, consider:
-1. **Environment Variables**: Store password in `.env.local`
-2. **NextAuth.js**: Implement proper authentication
-3. **Session Management**: Use JWT tokens
-4. **Rate Limiting**: Prevent brute-force attacks
-5. **Database**: Consider using a database instead of file-based storage
+⚠️ **Current Limitation**: The password is checked on the client-side, which means it's visible in the browser's JavaScript. This is **NOT production-grade security**.
+
+### Upgrading to Production-Ready Authentication
+
+For a real production application, implement proper authentication:
+
+1. **NextAuth.js** (Recommended)
+   ```bash
+   npm install next-auth
+   ```
+   - Supports OAuth (Google, GitHub, etc.)
+   - Secure session management
+   - Server-side authentication
+
+2. **Auth0** or **Clerk**
+   - Managed authentication services
+   - Enterprise-grade security
+   - Easy integration
+
+3. **Custom JWT Authentication**
+   - Server-side token validation
+   - Secure password hashing (bcrypt)
+   - HTTP-only cookies
+
+### Best Practices
+
+1. ✅ Never commit `.env.local` to git
+2. ✅ Use environment variables for secrets
+3. ✅ Use different passwords for development and production
+4. ❌ Don't share your `.env.local` file
+5. ❌ Don't expose passwords in client-side code (for production apps)
 
 ## How It Works
 

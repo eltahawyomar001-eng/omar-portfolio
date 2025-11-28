@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { contactInfo } from "@/data/content";
 
 /**
  * Contact Section Component
@@ -52,7 +53,7 @@ export default function ContactSection() {
             className="pt-4"
           >
             <a
-              href="mailto:omarragehfulda@gmail.com"
+              href={`mailto:${contactInfo.email}`}
               className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-accent to-accent-secondary text-white text-base sm:text-lg font-medium hover:opacity-90 transition-opacity shadow-2xl shadow-accent/30 hover:shadow-accent/40 hover:scale-105 transform duration-300"
               aria-label="Send me an email"
             >
@@ -83,7 +84,7 @@ export default function ContactSection() {
             className="flex items-center justify-center gap-4 sm:gap-6 pt-8"
           >
             <a
-              href="https://github.com/eltahawyomar001-eng"
+              href={contactInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-background/40 backdrop-blur-xl border border-white/10 text-foreground/70 hover:text-foreground hover:border-accent/50 transition-all duration-300 hover:scale-105"
@@ -101,7 +102,7 @@ export default function ContactSection() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/omar-rageh-8a0453172/"
+              href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-background/40 backdrop-blur-xl border border-white/10 text-foreground/70 hover:text-foreground hover:border-accent-secondary/50 transition-all duration-300 hover:scale-105"
