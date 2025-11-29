@@ -198,7 +198,7 @@ function ProjectCard() {
   
   return (
     <motion.div
-      className="absolute bottom-8 right-8 w-72 bg-black/80 backdrop-blur-xl border border-white/10 rounded-lg overflow-hidden z-20"
+      className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 w-56 sm:w-64 md:w-72 bg-black/80 backdrop-blur-xl border border-white/10 rounded-lg overflow-hidden z-20 hidden sm:block"
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 1.5, duration: 0.8 }}
@@ -211,7 +211,7 @@ function ProjectCard() {
         className="block"
       >
         {/* Project thumbnail */}
-        <div className="relative h-32 bg-gradient-to-br from-white/10 to-white/5 overflow-hidden">
+        <div className="relative h-24 sm:h-28 md:h-32 bg-gradient-to-br from-white/10 to-white/5 overflow-hidden">
           {latestProject.image ? (
             <Image
               src={latestProject.image}
@@ -229,15 +229,15 @@ function ProjectCard() {
           )}
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute top-2 left-2 px-2 py-1 bg-white text-black text-[10px] font-medium tracking-wider">
+          <div className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 px-1.5 py-0.5 sm:px-2 sm:py-1 bg-white text-black text-[8px] sm:text-[10px] font-medium tracking-wider">
             NEW PROJECT
           </div>
         </div>
         
         {/* Project info */}
-        <div className="p-4">
-          <h4 className="text-white text-sm font-medium mb-1">{latestProject.title}</h4>
-          <p className="text-white/50 text-xs">{latestProject.tech.slice(0, 2).join(" · ")}</p>
+        <div className="p-3 sm:p-4">
+          <h4 className="text-white text-xs sm:text-sm font-medium mb-1">{latestProject.title}</h4>
+          <p className="text-white/50 text-[10px] sm:text-xs">{latestProject.tech.slice(0, 2).join(" · ")}</p>
         </div>
       </a>
     </motion.div>
@@ -263,7 +263,7 @@ export default function HeroNew() {
       {/* Main content overlay */}
       <div className="relative z-10 h-full flex flex-col">
         {/* Split text - Work / Projects */}
-        <div className="flex-1 flex items-center justify-between px-8 md:px-16 lg:px-24">
+        <div className="flex-1 flex flex-col md:flex-row items-center justify-center md:justify-between px-6 sm:px-8 md:px-16 lg:px-24 gap-8 md:gap-0 pt-20 md:pt-0">
           {/* Left side - Work */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -274,7 +274,7 @@ export default function HeroNew() {
               href="#projects"
               className="group relative block"
             >
-              <span className="font-display text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white/90 tracking-tight hover:text-white transition-colors duration-500">
+              <span className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white/90 tracking-tight hover:text-white transition-colors duration-500">
                 <span className="relative inline-block">
                   W
                   {/* Decorative line through W */}
@@ -310,7 +310,7 @@ export default function HeroNew() {
               href="#about"
               className="group relative block"
             >
-              <span className="font-display text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white/90 tracking-tight hover:text-white transition-colors duration-500">
+              <span className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white/90 tracking-tight hover:text-white transition-colors duration-500">
                 About
               </span>
               <motion.span
