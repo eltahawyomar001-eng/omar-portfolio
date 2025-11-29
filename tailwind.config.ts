@@ -9,15 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0a0f",
-        foreground: "#f5f5f7",
+        background: "#000000",
+        foreground: "#ffffff",
+        muted: "#666666",
         accent: {
-          DEFAULT: "#3b82f6", // electric blue
-          secondary: "#8b5cf6", // soft purple
+          DEFAULT: "#ffffff",
+          secondary: "#888888",
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
+        sans: ["Inter", "var(--font-geist-sans)", "sans-serif"],
+        display: ["Cormorant Garamond", "serif"],
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s ease-in-out infinite',
+        'rotate-slow': 'rotate 20s linear infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
     },
   },

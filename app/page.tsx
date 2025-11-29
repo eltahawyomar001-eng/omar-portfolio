@@ -1,32 +1,31 @@
-import Navbar from "@/components/Navbar";
-import PageWrapper from "@/components/PageWrapper";
-import Hero from "@/components/Hero";
-import ProjectsSection from "@/components/ProjectsSection";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import NavbarNew from "@/components/NavbarNew";
+import HeroNew from "@/components/HeroNew";
+import ProjectsSectionNew from "@/components/ProjectsSectionNew";
+import AboutSectionNew from "@/components/AboutSectionNew";
+import ContactSectionNew from "@/components/ContactSectionNew";
+import FooterNew from "@/components/FooterNew";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <NavbarNew />
       
-      <main className="pt-16">
-        {/* Hero Section */}
-        <Hero />
+      <main>
+        {/* Hero Section - Full screen dramatic intro */}
+        <HeroNew />
 
         {/* Projects Section */}
-        <ProjectsSection />
+        <ProjectsSectionNew />
 
         {/* About Section */}
-        <AboutSection />
+        <AboutSectionNew />
 
         {/* Contact Section */}
-        <ContactSection />
+        <ContactSectionNew />
       </main>
 
       {/* Footer */}
-      <Footer />
+      <FooterNew />
     </>
   );
 }
