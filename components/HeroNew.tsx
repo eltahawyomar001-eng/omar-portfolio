@@ -190,13 +190,11 @@ function Abstract3DVisual() {
 
 /**
  * Floating Project Card Component
- * Shows the latest added project (last in array) with actual screenshot
+ * Shows the latest added project (first in array) with actual screenshot
  */
 function ProjectCard() {
-  // Get the last project in the array (most recently added)
-  // Filter for projects with live URL and image, then take the last one
-  const projectsWithDemo = projects.filter(p => p.liveUrl && p.image);
-  const latestProject = projectsWithDemo[projectsWithDemo.length - 1] || projects[projects.length - 1];
+  // Get the first project in the array (most recently added - newest first order)
+  const latestProject = projects.find(p => p.liveUrl && p.image) || projects[0];
   
   return (
     <motion.div
