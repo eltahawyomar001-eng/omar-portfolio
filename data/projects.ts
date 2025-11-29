@@ -5,6 +5,7 @@ export interface Project {
   tech: string[];
   githubUrl: string;
   liveUrl?: string;
+  image?: string;
   highlight: string;
   role?: string;
 }
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     tech: ["Python", "Streamlit", "Pandas", "Data Analysis", "SQL"],
     githubUrl: "https://github.com/eltahawyomar001-eng/salla-analytics",
     liveUrl: "https://salla-analytics-production.up.railway.app/",
+    image: "/projects/salla-analytics.png",
     highlight: "Real-time analytics with interactive data visualizations",
     role: "Full-stack Developer",
   },
@@ -29,6 +31,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "React"],
     githubUrl: "https://github.com/eltahawyomar001-eng/Omar-Creates",
     liveUrl: "https://omar-creates-qo6z.vercel.app/",
+    image: "/projects/omar-creates.png",
     highlight: "iOS & Web micro-SaaS platform for rapid validation",
     role: "Solo Project",
   },
@@ -60,6 +63,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/eltahawyomar001-eng/Showreel111",
     liveUrl: "https://showreel111.vercel.app/",
+    image: "/projects/showreel111.png",
     highlight: "Creative animations with hardware-accelerated transforms",
     role: "Solo Project",
   },
@@ -71,6 +75,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "SEO"],
     githubUrl: "https://github.com/eltahawyomar001-eng/budget-friendly-website",
     liveUrl: "https://budget-friendly-website.vercel.app/",
+    image: "/projects/budget-friendly-website.png",
     highlight: "Performance-first approach with zero heavy libraries",
     role: "Solo Project",
   },
@@ -82,6 +87,7 @@ export const projects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
     githubUrl: "https://github.com/eltahawyomar001-eng/travel-lap",
     liveUrl: "https://travel-lap.vercel.app/",
+    image: "/projects/travel-lap.png",
     highlight: "Complete brand kit with Webflow/WordPress adaptation guides",
     role: "Solo Project",
   },

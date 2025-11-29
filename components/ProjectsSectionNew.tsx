@@ -2,14 +2,16 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
 /**
  * Project Card Component
- * Minimal floating card design
+ * Minimal floating card design with project screenshots
  */
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -33,25 +35,36 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         <div className="relative bg-white/[0.02] border border-white/10 rounded-lg overflow-hidden transition-all duration-500 hover:border-white/30">
           {/* Thumbnail area */}
           <div className="relative h-64 bg-gradient-to-br from-white/5 to-transparent overflow-hidden">
-            {/* Abstract pattern */}
-            <div className="absolute inset-0 opacity-30">
-              <div className="absolute inset-0 grid grid-cols-8 grid-rows-8">
-                {[...Array(64)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="border-b border-r border-white/5"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: isHovered ? 1 : 0.5 }}
-                    transition={{ delay: i * 0.005 }}
-                  />
-                ))}
+            {/* Project screenshot or fallback pattern */}
+            {project.image && !imageError ? (
+              <Image
+                src={project.image}
+                alt={`${project.title} screenshot`}
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                onError={() => setImageError(true)}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            ) : (
+              /* Abstract pattern fallback */
+              <div className="absolute inset-0 opacity-30">
+                <div className="absolute inset-0 grid grid-cols-8 grid-rows-8">
+                  {[...Array(64)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="border-b border-r border-white/5"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: isHovered ? 1 : 0.5 }}
+                      transition={{ delay: i * 0.005 }}
+                    />
+                  ))}
+                </div>
+                {/* Project number for fallback */}
+                <div className="absolute top-4 right-4 text-white/20 text-6xl font-display font-light">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
               </div>
-            </div>
-
-            {/* Project number */}
-            <div className="absolute top-4 right-4 text-white/20 text-6xl font-display font-light">
-              {String(index + 1).padStart(2, "0")}
-            </div>
+            )}
 
             {/* Hover overlay */}
             <motion.div
@@ -62,7 +75,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             />
 
             {/* Tags */}
-            <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
               {project.tech.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
@@ -73,9 +86,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               ))}
             </div>
 
+            {/* Live demo indicator */}
+            {project.liveUrl && (
+              <div className="absolute top-4 right-4 z-10">
+                <span className="px-2 py-1 bg-green-500/20 backdrop-blur-sm border border-green-500/30 text-green-400 text-[10px] tracking-wider uppercase flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                  Live
+                </span>
+              </div>
+            )}
+
             {/* View project indicator */}
             <motion.div
-              className="absolute bottom-4 right-4 flex items-center gap-2 text-white text-sm"
+              className="absolute bottom-4 right-4 flex items-center gap-2 text-white text-sm z-10"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
               transition={{ duration: 0.3 }}

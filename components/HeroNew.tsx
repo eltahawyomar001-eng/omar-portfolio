@@ -2,6 +2,8 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { projects } from "@/data/projects";
 
 // Deterministic particle positions to avoid hydration errors
 const particlePositions = [
@@ -188,32 +190,56 @@ function Abstract3DVisual() {
 
 /**
  * Floating Project Card Component
+ * Shows the latest project with actual screenshot
  */
 function ProjectCard() {
+  // Get the first project with a live URL and image
+  const latestProject = projects.find(p => p.liveUrl && p.image) || projects[0];
+  
   return (
     <motion.div
       className="absolute bottom-8 right-8 w-72 bg-black/80 backdrop-blur-xl border border-white/10 rounded-lg overflow-hidden z-20"
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 1.5, duration: 0.8 }}
+      whileHover={{ scale: 1.02, borderColor: "rgba(255,255,255,0.2)" }}
     >
-      {/* Project thumbnail */}
-      <div className="relative h-32 bg-gradient-to-br from-white/10 to-white/5 overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-px opacity-20">
-          {[...Array(16)].map((_, i) => (
-            <div key={i} className="bg-white/10" />
-          ))}
+      <a 
+        href={latestProject.liveUrl || latestProject.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        {/* Project thumbnail */}
+        <div className="relative h-32 bg-gradient-to-br from-white/10 to-white/5 overflow-hidden">
+          {latestProject.image ? (
+            <Image
+              src={latestProject.image}
+              alt={latestProject.title}
+              fill
+              className="object-cover object-top"
+              sizes="288px"
+            />
+          ) : (
+            <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-px opacity-20">
+              {[...Array(16)].map((_, i) => (
+                <div key={i} className="bg-white/10" />
+              ))}
+            </div>
+          )}
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute top-2 left-2 px-2 py-1 bg-white text-black text-[10px] font-medium tracking-wider">
+            NEW PROJECT
+          </div>
         </div>
-        <div className="absolute top-2 left-2 px-2 py-1 bg-white text-black text-[10px] font-medium tracking-wider">
-          NEW PROJECT
+        
+        {/* Project info */}
+        <div className="p-4">
+          <h4 className="text-white text-sm font-medium mb-1">{latestProject.title}</h4>
+          <p className="text-white/50 text-xs">{latestProject.tech.slice(0, 2).join(" · ")}</p>
         </div>
-      </div>
-      
-      {/* Project info */}
-      <div className="p-4">
-        <h4 className="text-white text-sm font-medium mb-1">Latest Work</h4>
-        <p className="text-white/50 text-xs">Web Development & Design</p>
-      </div>
+      </a>
     </motion.div>
   );
 }
