@@ -12,6 +12,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Website Refresh Showreel",
+    slug: "showreel111",
+    description:
+      "A visually stunning one-page website showcasing smooth transitions, bold geometry, and story-driven motion. Features animated 3D pyramid patterns, interactive gradient prisms, and scroll-triggered transformations optimized for 60fps performance.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Showreel111",
+    liveUrl: "https://showreel111.vercel.app/",
+    image: "/projects/showreel111.png",
+    highlight: "Creative animations with hardware-accelerated transforms",
+    role: "Solo Project",
+  },
+  {
     title: "Salla Analytics Dashboard",
     slug: "salla-analytics",
     description:
@@ -33,38 +45,6 @@ export const projects: Project[] = [
     liveUrl: "https://omar-creates-qo6z.vercel.app/",
     image: "/projects/omar-creates.png",
     highlight: "iOS & Web micro-SaaS platform for rapid validation",
-    role: "Solo Project",
-  },
-  {
-    title: "PDF Generation System",
-    slug: "PDF-Gen",
-    description:
-      "An automated PDF generation system for creating professional business documents, invoices, and reports. Features customizable templates, dynamic data injection, and bulk processing capabilities.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PDF.js"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/PDF-Gen",
-    highlight: "Automated document generation with custom templates",
-    role: "Solo Project",
-  },
-  {
-    title: "Ali University Battle Simulation",
-    slug: "ali-uni",
-    description:
-      "An object-oriented battle simulation system built for educational purposes. Demonstrates advanced OOP concepts including inheritance, polymorphism, and design patterns with comprehensive unit testing.",
-    tech: ["Java", "OOP", "JUnit", "Design Patterns"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/ali-uni",
-    highlight: "Clean OOP architecture with 95%+ test coverage",
-    role: "Academic Project",
-  },
-  {
-    title: "Website Refresh Showreel",
-    slug: "showreel111",
-    description:
-      "A visually stunning one-page website showcasing smooth transitions, bold geometry, and story-driven motion. Features animated 3D pyramid patterns, interactive gradient prisms, and scroll-triggered transformations optimized for 60fps performance.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/Showreel111",
-    liveUrl: "https://showreel111.vercel.app/",
-    image: "/projects/showreel111.png",
-    highlight: "Creative animations with hardware-accelerated transforms",
     role: "Solo Project",
   },
   {
@@ -90,5 +70,25 @@ export const projects: Project[] = [
     image: "/projects/travel-lap.png",
     highlight: "Complete brand kit with Webflow/WordPress adaptation guides",
     role: "Solo Project",
+  },
+  {
+    title: "PDF Generation System",
+    slug: "PDF-Gen",
+    description:
+      "An automated PDF generation system for creating professional business documents, invoices, and reports. Features customizable templates, dynamic data injection, and bulk processing capabilities.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PDF.js"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/PDF-Gen",
+    highlight: "Automated document generation with custom templates",
+    role: "Solo Project",
+  },
+  {
+    title: "Ali University Battle Simulation",
+    slug: "ali-uni",
+    description:
+      "An object-oriented battle simulation system built for educational purposes. Demonstrates advanced OOP concepts including inheritance, polymorphism, and design patterns with comprehensive unit testing.",
+    tech: ["Java", "OOP", "JUnit", "Design Patterns"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/ali-uni",
+    highlight: "Clean OOP architecture with 95%+ test coverage",
+    role: "Academic Project",
   },
 ];
