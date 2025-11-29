@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import Image from "next/image";
 import { projects } from "@/data/projects";
 
 /**
  * Simplified Abstract Visual Component
  * Uses CSS animations instead of heavy Framer Motion for better LCP
+ * Memoized to prevent unnecessary re-renders
  */
-function Abstract3DVisual() {
+const Abstract3DVisual = memo(function Abstract3DVisual() {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
       {/* Ambient glow - CSS animation */}
@@ -70,7 +71,7 @@ function Abstract3DVisual() {
       </div>
     </div>
   );
-}
+});
 
 /**
  * Floating Project Card Component
@@ -133,6 +134,7 @@ function ProjectCard() {
 /**
  * New Hero Component
  * Dramatic full-screen design with abstract 3D visual
+ * LCP-optimized: Main text renders immediately, animations are progressive enhancement
  */
 export default function HeroNew() {
   const [mounted, setMounted] = useState(false);
@@ -143,55 +145,36 @@ export default function HeroNew() {
 
   return (
     <section className="relative h-screen w-full bg-black overflow-hidden">
-      {/* Abstract 3D Visual */}
+      {/* Abstract 3D Visual - loads after mount to not block LCP */}
       {mounted && <Abstract3DVisual />}
 
-      {/* Main content overlay */}
+      {/* Main content overlay - renders immediately for LCP */}
       <div className="relative z-10 h-full flex flex-col">
-        {/* Split text - Work / Projects */}
+        {/* Split text - Work / About - These are the LCP elements */}
         <div className="flex-1 flex flex-col md:flex-row items-center justify-center md:justify-between px-6 sm:px-8 md:px-16 lg:px-24 gap-8 md:gap-0 pt-20 md:pt-0">
-          {/* Left side - Work */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
+          {/* Left side - Work - SSR rendered for fast LCP */}
+          <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-100'}`}>
             <a
               href="#projects"
               className="group relative block"
             >
+              {/* LCP Element - Large text renders immediately */}
               <span className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white/90 tracking-tight hover:text-white transition-colors duration-500">
                 <span className="relative inline-block">
                   W
-                  {/* Decorative line through W */}
-                  <svg className="absolute top-1/2 left-0 w-full h-px" viewBox="0 0 100 1">
-                    <motion.line
-                      x1="0"
-                      y1="0.5"
-                      x2="100"
-                      y2="0.5"
-                      stroke="currentColor"
-                      strokeWidth="0.5"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 1, delay: 1 }}
-                    />
-                  </svg>
+                  {/* Decorative line through W - CSS animation */}
+                  <span className={`absolute top-1/2 left-0 h-px bg-current transition-all duration-1000 ${mounted ? 'w-full' : 'w-0'}`} />
                 </span>
                 ork
               </span>
-              <motion.span
+              <span
                 className="absolute -bottom-2 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500"
               />
             </a>
-          </motion.div>
+          </div>
 
-          {/* Right side - About */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
+          {/* Right side - About - SSR rendered for fast LCP */}
+          <div className={`transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-100'}`}>
             <a
               href="#about"
               className="group relative block"
@@ -199,36 +182,25 @@ export default function HeroNew() {
               <span className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white/90 tracking-tight hover:text-white transition-colors duration-500">
                 About
               </span>
-              <motion.span
+              <span
                 className="absolute -bottom-2 right-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500"
               />
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Floating project card */}
-      <ProjectCard />
+      {/* Floating project card - loads after mount */}
+      {mounted && <ProjectCard />}
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <motion.div
-          className="w-6 h-10 border border-white/30 rounded-full flex items-start justify-center p-2"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <motion.div
-            className="w-1 h-2 bg-white/50 rounded-full"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </motion.div>
-      </motion.div>
+      {mounted && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-fade-in">
+          <div className="w-6 h-10 border border-white/30 rounded-full flex items-start justify-center p-2 animate-bounce-slow">
+            <div className="w-1 h-2 bg-white/50 rounded-full" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
