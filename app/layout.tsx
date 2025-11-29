@@ -1,5 +1,29 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+
+// Optimize font loading with next/font
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  preload: true,
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-cormorant",
+  preload: true,
+});
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "Omar Rageh – Full-stack Developer & Automation Builder",
@@ -68,8 +92,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="font-sans antialiased bg-black text-white" suppressHydrationWarning>
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${cormorant.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Preconnect to Google Fonts for fallback */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
+      <body className={`${inter.className} antialiased bg-black text-white`} suppressHydrationWarning>
         {children}
       </body>
     </html>

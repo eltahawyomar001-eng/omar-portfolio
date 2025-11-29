@@ -219,6 +219,8 @@ function ProjectCard() {
               fill
               className="object-cover object-top"
               sizes="288px"
+              priority
+              loading="eager"
             />
           ) : (
             <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-px opacity-20">

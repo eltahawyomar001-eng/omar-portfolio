@@ -44,6 +44,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 onError={() => setImageError(true)}
                 sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
               />
             ) : (
               /* Abstract pattern fallback */

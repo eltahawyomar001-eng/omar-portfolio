@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
 :root {
   --background: #000000;
   --foreground: #ffffff;
   --accent: #ffffff;
   --muted: #666666;
+  --font-inter: 'Inter', sans-serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
 }
 
 * {
@@ -18,13 +18,13 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter);
   overflow-x: hidden;
 }
 
 /* Elegant serif for display text */
 .font-display {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant);
 }
 
 /* Custom cursor styles */
@@ -36,6 +36,17 @@ a, button {
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+
+/* Optimize paint performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Reduce layout shift for images */
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 @layer utilities {

@@ -18,8 +18,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "var(--font-geist-sans)", "sans-serif"],
-        display: ["Cormorant Garamond", "serif"],
+        sans: ["var(--font-inter)", "Inter", "sans-serif"],
+        display: ["var(--font-cormorant)", "Cormorant Garamond", "serif"],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
