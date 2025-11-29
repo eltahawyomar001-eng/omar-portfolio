@@ -24,6 +24,18 @@ export const projects: Project[] = [
     role: "Solo Project",
   },
   {
+    title: "Real Estate Platform",
+    slug: "real-estate",
+    description:
+      "A modern real estate website with property listings, search functionality, and contact forms. Features elegant UI design, property filtering, and responsive layouts for seamless browsing across devices.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Real-Estate",
+    liveUrl: "https://real-estate-vpcn9b73f-omar-fahmys-projects-87bdb2b3.vercel.app/",
+    image: "/projects/real-estate.png",
+    highlight: "Property listings with advanced search and filtering",
+    role: "Solo Project",
+  },
+  {
     title: "Salla Analytics Dashboard",
     slug: "salla-analytics",
     description:
@@ -70,25 +82,5 @@ export const projects: Project[] = [
     image: "/projects/travel-lap.png",
     highlight: "Complete brand kit with Webflow/WordPress adaptation guides",
     role: "Solo Project",
-  },
-  {
-    title: "PDF Generation System",
-    slug: "PDF-Gen",
-    description:
-      "An automated PDF generation system for creating professional business documents, invoices, and reports. Features customizable templates, dynamic data injection, and bulk processing capabilities.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PDF.js"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/PDF-Gen",
-    highlight: "Automated document generation with custom templates",
-    role: "Solo Project",
-  },
-  {
-    title: "Ali University Battle Simulation",
-    slug: "ali-uni",
-    description:
-      "An object-oriented battle simulation system built for educational purposes. Demonstrates advanced OOP concepts including inheritance, polymorphism, and design patterns with comprehensive unit testing.",
-    tech: ["Java", "OOP", "JUnit", "Design Patterns"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/ali-uni",
-    highlight: "Clean OOP architecture with 95%+ test coverage",
-    role: "Academic Project",
   },
 ];
