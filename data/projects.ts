@@ -24,18 +24,6 @@ export const projects: Project[] = [
     role: "Solo Project",
   },
   {
-    title: "Real Estate Platform",
-    slug: "real-estate",
-    description:
-      "A modern real estate website with property listings, search functionality, and contact forms. Features elegant UI design, property filtering, and responsive layouts for seamless browsing across devices.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/Real-Estate",
-    liveUrl: "https://real-estate-vpcn9b73f-omar-fahmys-projects-87bdb2b3.vercel.app/",
-    image: "/projects/real-estate.png",
-    highlight: "Property listings with advanced search and filtering",
-    role: "Solo Project",
-  },
-  {
     title: "Salla Analytics Dashboard",
     slug: "salla-analytics",
     description:
@@ -81,6 +69,18 @@ export const projects: Project[] = [
     liveUrl: "https://travel-lap.vercel.app/",
     image: "/projects/travel-lap.png",
     highlight: "Complete brand kit with Webflow/WordPress adaptation guides",
+    role: "Solo Project",
+  },
+  {
+    title: "Real Estate Platform",
+    slug: "real-estate",
+    description:
+      "A modern real estate website with property listings, search functionality, and contact forms. Features elegant UI design, property filtering, and responsive layouts for seamless browsing across devices.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Real-Estate",
+    liveUrl: "https://real-estate-vpcn9b73f-omar-fahmys-projects-87bdb2b3.vercel.app/",
+    image: "/projects/real-estate.png",
+    highlight: "Property listings with advanced search and filtering",
     role: "Solo Project",
   },
 ];
