@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Omar Rageh Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "Omar Rageh - Full-stack Developer Portfolio",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Omar Rageh – Full-stack Developer & Automation Builder",
     description:
       "Full-stack developer building practical web applications, automation tools, and data-driven workflows.",
-    images: ["/og-image.png"],
+    images: ["/api/og"],
   },
   robots: {
     index: true,
