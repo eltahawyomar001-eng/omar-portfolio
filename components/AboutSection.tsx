@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { aboutContent, skillsCategories } from "@/data/content";
 
 /**
- * About Section Component
+ * About Section Component (LEGACY - use AboutSectionNew instead)
  * 
  * Two-column layout featuring:
  * - Left: Personal narrative and background
@@ -39,9 +39,8 @@ export default function AboutSection() {
 
             {/* About Text */}
             <div className="space-y-4 text-foreground/70 leading-relaxed">
-              {aboutContent.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+              <p>{aboutContent.paragraphDe}</p>
+              <p>{aboutContent.paragraphEn}</p>
             </div>
           </motion.div>
 

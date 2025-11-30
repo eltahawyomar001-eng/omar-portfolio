@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 /**
  * New Footer Component
- * Minimal design matching the overall aesthetic
+ * Minimal design with bilingual location
  */
 export default function FooterNew() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +20,7 @@ export default function FooterNew() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            © {currentYear} Omar Rageh. All rights reserved.
+            © {currentYear} Omar Rageh
           </motion.p>
 
           {/* Center - Back to top */}
@@ -31,7 +31,7 @@ export default function FooterNew() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <span className="text-[10px] sm:text-xs tracking-wider uppercase">Back to top</span>
+            <span className="text-[10px] sm:text-xs tracking-wider uppercase">Nach oben / Back to top</span>
             <svg
               className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:-translate-y-1 transition-transform"
               fill="none"
@@ -47,15 +47,20 @@ export default function FooterNew() {
             </svg>
           </motion.a>
 
-          {/* Right - Location */}
-          <motion.p
-            className="text-white/30 text-xs sm:text-sm order-2 sm:order-3"
+          {/* Right - Location - Bilingual */}
+          <motion.div
+            className="text-center sm:text-right order-2 sm:order-3"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Based in Germany
-          </motion.p>
+            <p className="text-white/30 text-xs sm:text-sm">
+              Mit Sitz in Fulda, Deutschland
+            </p>
+            <p className="text-white/20 text-[10px] sm:text-xs">
+              Based in Fulda, Germany
+            </p>
+          </motion.div>
         </div>
       </div>
     </footer>

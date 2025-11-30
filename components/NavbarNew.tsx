@@ -54,9 +54,10 @@ export default function NavbarNew() {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { name: "Work", href: "#projects" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Projekte", nameEn: "Projects", href: "#projects" },
+    { name: "Über mich", nameEn: "About", href: "#about" },
+    { name: "Leistungen", nameEn: "Services", href: "#services" },
+    { name: "Kontakt", nameEn: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = () => {
@@ -100,7 +101,9 @@ export default function NavbarNew() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.1 * index }}
                 >
-                  {item.name}
+                  <span>{item.name}</span>
+                  <span className="text-white/40 mx-1">/</span>
+                  <span className="text-white/50">{item.nameEn}</span>
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
                 </motion.a>
               ))}
@@ -112,7 +115,7 @@ export default function NavbarNew() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>Inquiries</span>
+              <span>Anfragen</span>
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
               </svg>
@@ -148,13 +151,15 @@ export default function NavbarNew() {
                   key={item.name}
                   href={item.href}
                   onClick={handleNavClick}
-                  className="text-white text-3xl sm:text-4xl font-display font-light hover:opacity-70 transition-opacity"
+                  className="text-white text-3xl sm:text-4xl font-display font-light hover:opacity-70 transition-opacity text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: 0.1 * index }}
                 >
-                  {item.name}
+                  <span>{item.name}</span>
+                  <span className="text-white/40 mx-2">/</span>
+                  <span className="text-white/50">{item.nameEn}</span>
                 </motion.a>
               ))}
               
@@ -167,7 +172,7 @@ export default function NavbarNew() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ delay: 0.4 }}
               >
-                <span>Inquiries</span>
+                <span>Anfragen</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>

@@ -2,11 +2,11 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { aboutContent, skillsCategories } from "@/data/content";
+import { aboutContent, skillsCategories, skillsIntroDe, skillsIntroEn } from "@/data/content";
 
 /**
  * New About Section
- * Minimal, dark aesthetic with elegant typography
+ * Minimal, dark aesthetic with bilingual content
  */
 export default function AboutSectionNew() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,7 +32,7 @@ export default function AboutSectionNew() {
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        {/* Section header */}
+        {/* Section header - Bilingual */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-b border-white/10 pb-6 sm:pb-8 mb-10 sm:mb-16 md:mb-20 gap-4 sm:gap-0">
           <div>
             <motion.p
@@ -41,7 +41,7 @@ export default function AboutSectionNew() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Get to know me
+              {aboutContent.heading}
             </motion.p>
             <motion.h2
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-light"
@@ -50,7 +50,7 @@ export default function AboutSectionNew() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              {aboutContent.heading}
+              {aboutContent.headingDe}
             </motion.h2>
           </div>
         </div>
@@ -59,42 +59,97 @@ export default function AboutSectionNew() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-24">
           {/* Left column - About text */}
           <div className="lg:col-span-7 space-y-5 sm:space-y-6 md:space-y-8">
-            {aboutContent.paragraphs.map((paragraph, index) => (
-              <motion.p
-                key={index}
-                className="text-white/60 text-base sm:text-lg leading-relaxed"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {paragraph}
-              </motion.p>
-            ))}
+            {/* German paragraph */}
+            <motion.p
+              className="text-white/70 text-base sm:text-lg leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {aboutContent.paragraphDe}
+            </motion.p>
+            
+            {/* English paragraph */}
+            <motion.p
+              className="text-white/50 text-sm sm:text-base leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              {aboutContent.paragraphEn}
+            </motion.p>
 
-            {/* Signature/closing */}
+            {/* Bullets section */}
             <motion.div
               className="pt-6 sm:pt-8 border-t border-white/10"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.2 }}
             >
-              <p className="text-white/40 text-xs sm:text-sm mb-2 sm:mb-4">Currently based in</p>
-              <p className="text-white text-xl sm:text-2xl font-display font-light">Germany</p>
+              <p className="text-white/60 text-sm sm:text-base font-medium mb-2">
+                {aboutContent.bulletsTitleDe}
+              </p>
+              <p className="text-white/40 text-xs sm:text-sm mb-4">
+                {aboutContent.bulletsTitleEn}
+              </p>
+              
+              <ul className="space-y-3">
+                {aboutContent.bullets.map((bullet, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                  >
+                    <span className="text-white/30 mt-1">•</span>
+                    <div>
+                      <p className="text-white/60 text-sm leading-relaxed">{bullet.de}</p>
+                      <p className="text-white/40 text-xs leading-relaxed">{bullet.en}</p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Location */}
+            <motion.div
+              className="pt-6 sm:pt-8 border-t border-white/10"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <p className="text-white text-lg sm:text-xl font-display font-light">
+                {aboutContent.locationDe}
+              </p>
+              <p className="text-white/50 text-sm">
+                {aboutContent.locationEn}
+              </p>
             </motion.div>
           </div>
 
           {/* Right column - Skills */}
           <div className="lg:col-span-5">
-            <motion.p
-              className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-6 sm:mb-8"
+            <motion.div
+              className="mb-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              Expertise
-            </motion.p>
+              <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4">
+                Expertise
+              </p>
+              <p className="text-white/60 text-sm leading-relaxed mb-1">
+                {skillsIntroDe}
+              </p>
+              <p className="text-white/40 text-xs leading-relaxed">
+                {skillsIntroEn}
+              </p>
+            </motion.div>
 
             <div className="space-y-6 sm:space-y-8">
               {skillsCategories.map((category, index) => (
@@ -142,7 +197,7 @@ export default function AboutSectionNew() {
                 download="Omar_Rageh_Resume.pdf"
                 className="group inline-flex items-center gap-2 sm:gap-3 text-white/60 hover:text-white active:text-white/80 transition-colors py-2"
               >
-                <span className="text-xs sm:text-sm tracking-wide">Download Resume</span>
+                <span className="text-xs sm:text-sm tracking-wide">Lebenslauf herunterladen / Download Resume</span>
                 <svg
                   className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform"
                   fill="none"
