@@ -3,6 +3,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, memo } from "react";
 
+// Declare fbq for TypeScript
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 /**
  * Simplified Abstract Visual Component
  * Uses CSS animations instead of heavy Framer Motion for better LCP
@@ -173,6 +180,11 @@ export default function HeroNew() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            onClick={() => {
+              if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+                window.fbq('track', 'Contact');
+              }
+            }}
           >
             <WhatsAppIcon className="w-4 h-4" />
             <span className="text-sm">Oder per WhatsApp schreiben</span>

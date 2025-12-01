@@ -3,6 +3,13 @@
 import { motion } from "framer-motion";
 import { contactInfo } from "@/data/content";
 
+// Declare fbq for TypeScript
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 /**
  * WhatsApp Icon Component
  */
@@ -99,6 +106,11 @@ export default function ContactSectionNew() {
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-green-600 hover:bg-green-500 rounded-full text-white transition-all duration-300 w-full sm:w-auto justify-center"
+            onClick={() => {
+              if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+                window.fbq('track', 'Contact');
+              }
+            }}
           >
             <WhatsAppIcon className="w-5 h-5" />
             <div className="text-left">
