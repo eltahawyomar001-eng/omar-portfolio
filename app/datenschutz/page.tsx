@@ -256,8 +256,8 @@ export default function DatenschutzPage() {
           <p className="text-white/70 leading-relaxed">
             Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum
             Beispiel Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine
-            verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf
-            „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile. Wenn die SSL- bzw.
+            verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf
+            „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile. Wenn die SSL- bzw.
             TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten
             mitgelesen werden.
           </p>
@@ -297,7 +297,7 @@ export default function DatenschutzPage() {
           <div className="text-white/70 leading-relaxed space-y-4 mb-8">
             <p>
               Diese Website wird bei Vercel Inc. gehostet. Der Anbieter ist Vercel Inc., 440 N Barranca Ave #4133,
-              Covina, CA 91723, USA (nachfolgend „Vercel").
+              Covina, CA 91723, USA (nachfolgend „Vercel“).
             </p>
             <p>
               Wenn Sie unsere Website besuchen, werden Ihre personenbezogenen Daten auf den Servern von Vercel
@@ -428,7 +428,7 @@ export default function DatenschutzPage() {
               </a>
             </p>
             <p>
-              Sie können außerdem die Remarketing-Funktion „Custom Audiences" im Bereich Einstellungen für
+              Sie können außerdem die Remarketing-Funktion „Custom Audiences“ im Bereich Einstellungen für
               Werbeanzeigen unter{" "}
               <a 
                 href="https://www.facebook.com/ads/preferences/" 
