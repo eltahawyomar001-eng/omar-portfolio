@@ -25,12 +25,21 @@ export default function FooterNew() {
               © {currentYear} Omar Rageh
             </p>
             <span className="hidden sm:inline text-white/20">·</span>
-            <Link 
-              href="/impressum" 
-              className="text-white/30 text-xs sm:text-sm hover:text-white transition-colors"
-            >
-              Impressum
-            </Link>
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Link 
+                href="/impressum" 
+                className="text-white/30 text-xs sm:text-sm hover:text-white transition-colors"
+              >
+                Impressum
+              </Link>
+              <span className="text-white/20">·</span>
+              <Link 
+                href="/datenschutz" 
+                className="text-white/30 text-xs sm:text-sm hover:text-white transition-colors"
+              >
+                Datenschutz
+              </Link>
+            </div>
           </motion.div>
 
           {/* Center - Back to top */}
