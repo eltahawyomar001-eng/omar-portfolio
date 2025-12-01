@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 /**
  * New Footer Component
@@ -13,15 +14,24 @@ export default function FooterNew() {
     <footer className="bg-black border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-10 md:py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-          {/* Left - Copyright */}
-          <motion.p
-            className="text-white/30 text-xs sm:text-sm order-3 sm:order-1"
+          {/* Left - Copyright & Legal */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 order-3 sm:order-1"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            © {currentYear} Omar Rageh
-          </motion.p>
+            <p className="text-white/30 text-xs sm:text-sm">
+              © {currentYear} Omar Rageh
+            </p>
+            <span className="hidden sm:inline text-white/20">·</span>
+            <Link 
+              href="/impressum" 
+              className="text-white/30 text-xs sm:text-sm hover:text-white transition-colors"
+            >
+              Impressum
+            </Link>
+          </motion.div>
 
           {/* Center - Back to top */}
           <motion.a
