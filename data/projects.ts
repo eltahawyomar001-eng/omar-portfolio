@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "ANALOG Drivers' Club",
+    slug: "90s-car-club",
+    descriptionDe:
+      "Premium-Website für einen exklusiven Oldtimer-Club. Editorial Design mit Magazin-Ästhetik, eleganter Typografie und raffinierten Interaktionen für Fahrzeuge von 1990–2005.",
+    description:
+      "Premium website for an exclusive classic car club. Editorial design with magazine aesthetics, elegant typography, and refined interactions for vehicles from 1990–2005.",
+    resultDe: "Parallax-Hero, Scroll-Animationen, Custom Cursor und asymmetrische Galerien für ein immersives Erlebnis.",
+    resultEn: "Parallax hero, scroll animations, custom cursor, and asymmetric galleries for an immersive experience.",
+    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/90sCarClub",
+    liveUrl: "https://90s-car-club.vercel.app",
+    image: "/projects/90s-car-club.png",
+    highlight: "Stack: HTML5, CSS3, Vanilla JavaScript",
+    role: "Solo Project",
+  },
+  {
     title: "Real Estate Platform",
     slug: "real-estate",
     descriptionDe:
