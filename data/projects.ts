@@ -31,14 +31,14 @@ export const projects: Project[] = [
     role: "Solo Project",
   },
   {
-    title: "Website Refresh Showreel",
+    title: "1-1-1 Interactive Prototype",
     slug: "showreel111",
     descriptionDe:
-      "Eine visuell beeindruckende One-Page-Website mit sanften Übergängen, mutiger Geometrie und scroll-gesteuerten Animationen. Optimiert für 60fps Performance.",
+      "Ein interaktiver Multi-Screen-Prototyp mit fraktalen Hintergründen, Matrix-Übergängen und leuchtender Navigation. Partikeltext-Effekte und Cursor-Trail für immersive Erlebnisse.",
     description:
-      "A visually stunning one-page website with smooth transitions, bold geometry, and scroll-triggered animations. Optimized for 60fps performance.",
-    resultDe: "Kreative Animationen mit hardwarebeschleunigten Transformationen für flüssige Benutzererfahrung.",
-    resultEn: "Creative animations with hardware-accelerated transforms for smooth user experience.",
+      "An interactive multi-screen prototype featuring fractal backgrounds, matrix transitions, and glowing arrow navigation. Particle text effects and cursor trail for immersive experiences.",
+    resultDe: "Emergence-Loader, Screen-Navigation und hardwarebeschleunigte Animationen für nahtlose Interaktionen.",
+    resultEn: "Emergence loader, screen navigation, and hardware-accelerated animations for seamless interactions.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/eltahawyomar001-eng/Showreel111",
     liveUrl: "https://showreel111.vercel.app/",
