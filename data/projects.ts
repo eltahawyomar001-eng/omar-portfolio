@@ -110,4 +110,20 @@ export const projects: Project[] = [
     highlight: "Stack: Python, Streamlit, Pandas, SQL",
     role: "Full-stack Developer",
   },
+  {
+    title: "WEBKRAFT.DE Landing Page",
+    slug: "webkraft-de",
+    descriptionDe:
+      "Eine hochwertige Landing Page im Stil von landeseiten.de. Tiefe Lila-Gradienten, Mint-Akzente, mutige Typografie und flüssige Animationen für maximale Conversion.",
+    description:
+      "A premium landing page matching the landeseiten.de design language. Deep purple gradients, mint green accents, bold typography, and smooth animations for maximum conversion.",
+    resultDe: "Vollständige Seiten inkl. Hero, Services, Prozess, Portfolio, Testimonials, FAQ, Team und CTA – responsiv auf allen Geräten.",
+    resultEn: "Complete sections including hero, services, process, portfolio, testimonials, FAQ, team, and CTA – responsive across all devices.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/WEBKRAFT.DE",
+    liveUrl: "https://webkraft-de.vercel.app/",
+    image: "/projects/webkraft-de.png",
+    highlight: "Stack: Next.js, TypeScript, Tailwind CSS, Framer Motion",
+    role: "Solo Project",
+  },
 ];
