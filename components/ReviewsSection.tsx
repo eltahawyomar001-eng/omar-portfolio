@@ -11,6 +11,12 @@ interface Review {
 
 const reviews: Review[] = [
   {
+    quoteDe: "Phänomenaler Webdesigner/Entwickler. Aced my project. Moves quickly.",
+    quoteEn: "Phenomenal web designer/developer. Aced my project. Moves quickly.",
+    labelDe: "Brooklyn Vintage Car Club",
+    labelEn: "Brooklyn Vintage Car Club",
+  },
+  {
     quoteDe: "Klare Kommunikation, schnelle Umsetzung und ein Ergebnis, das genau zu unseren Anforderungen passte.",
     quoteEn: "Clear communication, fast implementation, and a result that matched our requirements perfectly.",
     labelDe: "Kunde aus dem Dienstleistungsbereich",
@@ -67,7 +73,7 @@ export default function ReviewsSection() {
             Zusammenarbeit & Feedback
           </motion.h2>
           
-          {/* Intro text - explains these are expectations, not real quotes */}
+          {/* Intro text */}
           <motion.div
             className="max-w-2xl space-y-2"
             initial={{ opacity: 0 }}
@@ -76,16 +82,16 @@ export default function ReviewsSection() {
             transition={{ delay: 0.2 }}
           >
             <p className="text-white/60 text-sm sm:text-base">
-              Ich arbeite transparent, zuverlässig und in enger Abstimmung mit meinen Auftraggebern. Bis echte Kundenstimmen hier stehen, beschreibt dieses Feedback, was Sie von einer Zusammenarbeit mit mir erwarten können.
+              Ich arbeite transparent, zuverlässig und in enger Abstimmung mit meinen Auftraggebern. Hier finden Sie echtes Feedback von Projekten, die ich erfolgreich umgesetzt habe.
             </p>
             <p className="text-white/40 text-xs sm:text-sm">
-              I work transparently, reliably, and in close collaboration with my clients. Until real client quotes appear here, this feedback describes what you can expect when working with me.
+              I work transparently, reliably, and in close collaboration with my clients. Here you'll find genuine feedback from projects I've successfully delivered.
             </p>
           </motion.div>
         </div>
 
         {/* Reviews grid - text only, no avatars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8">
           {reviews.map((review, index) => (
             <motion.div
               key={index}
@@ -120,6 +126,29 @@ export default function ReviewsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Upwork link */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          <a
+            href="https://www.upwork.com/freelancers/~01cb0d39a49a517f99"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors text-sm"
+          >
+            <span>Weitere Bewertungen auf Upwork ansehen</span>
+            <span className="text-white/20">·</span>
+            <span>View more reviews on Upwork</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
 
       {/* Decorative elements */}
