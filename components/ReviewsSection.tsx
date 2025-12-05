@@ -85,7 +85,7 @@ export default function ReviewsSection() {
               Ich arbeite transparent, zuverlässig und in enger Abstimmung mit meinen Auftraggebern. Hier finden Sie echtes Feedback von Projekten, die ich erfolgreich umgesetzt habe.
             </p>
             <p className="text-white/40 text-xs sm:text-sm">
-              I work transparently, reliably, and in close collaboration with my clients. Here you'll find genuine feedback from projects I've successfully delivered.
+              I work transparently, reliably, and in close collaboration with my clients. Here you&apos;ll find genuine feedback from projects I&apos;ve successfully delivered.
             </p>
           </motion.div>
         </div>
