@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "MADZ Concierge",
+    slug: "madz-concierge",
+    descriptionDe:
+      "Ultra-minimale Luxus-Website für exklusiven VIP-Concierge-Service. Passwortgeschützter Zugang, filmisches Design, Custom Cursor und verfeinerte Interaktionen.",
+    description:
+      "Ultra-minimal luxury website for exclusive VIP concierge service. Password-protected access, cinematic design, custom cursor, and refined interactions.",
+    resultDe: "Cinematisches Video-Hero, Grayscale-Bilder mit Farb-Reveal, Scroll-Animationen und champagne-goldene Akzente auf tiefschwarzer Palette.",
+    resultEn: "Cinematic video hero, grayscale images with color reveal, scroll animations, and champagne-gold accents on deep black palette.",
+    tech: ["HTML5", "CSS3", "Vanilla JavaScript", "Responsive Design"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/MADS",
+    liveUrl: "https://mads-xi.vercel.app/",
+    image: "/projects/madz-concierge.png",
+    highlight: "Stack: HTML5, CSS3, Vanilla JavaScript",
+    role: "Solo Project",
+  },
+  {
     title: "Redyoi - Enterprise IT Solutions",
     slug: "redyoi-ai",
     descriptionDe:
