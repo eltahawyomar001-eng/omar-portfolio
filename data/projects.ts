@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "FunnelCraft SaaS",
+    slug: "funnelcraft",
+    descriptionDe:
+      "SaaS-Dashboard für Freelancer und Agenturen zur Verfolgung von Client-Funnels. Visueller Funnel-Builder, Echtzeit-Analysen, Aufgabenverwaltung und PDF-Berichte.",
+    description:
+      "SaaS dashboard for freelancers and agencies to track client funnels. Visual funnel builder, real-time analytics, task management, and PDF reporting.",
+    resultDe: "Vollständige Landing-Page mit Hero, Feature-Showcase, Testimonials, Preisgestaltung und FAQ. Modern, konvertierungsorientiert.",
+    resultEn: "Complete landing page with hero, feature showcase, testimonials, pricing tiers, and FAQ. Modern, conversion-focused design.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/FunnelCraft",
+    liveUrl: "https://funnel-craft-green.vercel.app/",
+    image: "/projects/funnelcraft.png",
+    highlight: "Stack: Next.js, TypeScript, Tailwind CSS",
+    role: "Solo Project",
+  },
+  {
     title: "MADZ Concierge",
     slug: "madz-concierge",
     descriptionDe:
