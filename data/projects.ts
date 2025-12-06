@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Redyoi - Enterprise IT Solutions",
+    slug: "redyoi-ai",
+    descriptionDe:
+      "Moderne Enterprise-Website für IT-Lösungsanbieter, spezialisiert auf AI, IoT und ELV-Systeme. Vollständiges Redesign mit interaktiven Elementen und professionellem Design.",
+    description:
+      "Modern enterprise website for IT solutions provider specializing in AI, IoT, and ELV systems. Complete redesign with interactive elements and professional design.",
+    resultDe: "Responsive Multi-Page-Site mit animierten Elementen, filterbarem Portfolio und Kontaktformular. Neural Network Visualisierung.",
+    resultEn: "Responsive multi-page site with animated elements, filterable portfolio, and contact form. Neural network visualization.",
+    tech: ["HTML5", "CSS3", "Vanilla JavaScript", "Responsive Design"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/AI-Platform",
+    liveUrl: "https://ai-platform-seven-navy.vercel.app/",
+    image: "/projects/redyoi-ai.png",
+    highlight: "Stack: HTML5, CSS3, Vanilla JavaScript",
+    role: "Solo Project",
+  },
+  {
     title: "Brooklyn Vintage Car Club",
     slug: "90s-car-club",
     descriptionDe:
