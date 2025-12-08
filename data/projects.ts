@@ -190,4 +190,20 @@ export const projects: Project[] = [
     highlight: "Stack: Next.js, TypeScript, Tailwind CSS, Framer Motion",
     role: "Solo Project",
   },
+  {
+    title: "LegalFlow - Lawyer CRM Landing Page",
+    slug: "lawyer-landing-page",
+    descriptionDe:
+      "Moderne, conversion-optimierte Landing Page für einen Anwalts-CRM-Dienst. Dunkles Theme mit grünen Akzenten, Produkt-Showcase, Preisstufen und interaktive FAQ.",
+    description:
+      "Modern, conversion-focused landing page for a Lawyer CRM service. Dark theme with green accents, product showcase, pricing tiers, and interactive FAQ.",
+    resultDe: "Vollständige Sektionen: Hero mit Dashboard-Preview, CRM-Mockups, 3-Stufen-Prozess, Preiskarten und erweiterbare FAQ mit sanften Scroll-Animationen.",
+    resultEn: "Complete sections: hero with dashboard preview, CRM mockups gallery, 3-step process, pricing cards, and expandable FAQ with smooth scroll animations.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Lawyer-Landing-Page",
+    liveUrl: "https://lawyer-landing-page-six.vercel.app/",
+    image: "/projects/lawyer-landing-page.png",
+    highlight: "Stack: React, TypeScript, Vite, Tailwind CSS, Framer Motion",
+    role: "Solo Project",
+  },
 ];
