@@ -63,7 +63,7 @@ transition={{ delay: index * 0.1 }}  // stagger for lists
 
 ## Project Data Schema
 ```typescript
-// data/projects.ts
+// data/projects.ts - NEW PROJECTS GO AT THE TOP OF THE ARRAY
 interface Project {
   title: string;
   slug: string;           // URL-safe, unique identifier
@@ -79,6 +79,12 @@ interface Project {
   role?: string;
 }
 ```
+
+### Adding a New Project
+1. Add project object at the **TOP** of the `projects` array in `data/projects.ts`
+2. Create screenshot: `capture-[slug].js` using Puppeteer (see existing scripts)
+3. Run `node capture-[slug].js` to save image to `public/projects/[slug].png`
+4. Commit and push to deploy
 
 ## Commands
 ```bash

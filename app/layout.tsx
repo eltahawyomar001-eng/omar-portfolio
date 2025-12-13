@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Optimize font loading with next/font
@@ -130,6 +131,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased bg-black text-white`} suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );
