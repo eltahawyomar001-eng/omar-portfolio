@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Bennna - Contractor Management SaaS",
+    slug: "bennna",
+    descriptionDe:
+      "Ein arabischsprachiges SaaS für Bauunternehmer zur Verwaltung von Aufträgen, Kunden, Preisen, Ausgaben und Teamaufgaben. RTL-Design mit WhatsApp-Integration.",
+    description:
+      "An Arabic contractor management SaaS for organizing jobs, clients, pricing, expenses, and team tasks. RTL design with WhatsApp integration and construction-themed UI.",
+    resultDe: "Vollständige Landing Page mit Hero, Vorher/Nachher-Vergleich, interaktiver Demo, Preisgestaltung und FAQ. Moderne, konversionsorientierte Ästhetik.",
+    resultEn: "Complete landing page with hero, before/after comparison, interactive demo preview, pricing tiers, and FAQ. Modern, conversion-focused design with Egyptian Arabic copy.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React", "RTL Support"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Bennna",
+    liveUrl: "https://bennna.vercel.app/",
+    image: "/projects/bennna.png",
+    highlight: "Stack: Next.js, TypeScript, Tailwind CSS, RTL Design",
+    role: "Solo Project",
+  },
+  {
     title: "LegalFlow - Lawyer CRM Landing Page",
     slug: "lawyer-landing-page",
     descriptionDe:
