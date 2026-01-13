@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "NB Motorsport - Lenzokart Importeur Deutschland",
+    slug: "nb-motorsport",
+    descriptionDe:
+      "Offizielle Website für NB Motorsport, den einzigen Lenzokart-Importeur in Deutschland. Modernes Design mit Glasmorphismus, Rennkalender, Team-Seite und News-System.",
+    description:
+      "Official website for NB Motorsport, the sole Lenzokart importer in Germany. Modern design with glassmorphism, race calendar, team page, and news management system.",
+    resultDe: "Pixel-perfekte Umsetzung des Figma-Designs mit Cookie-Management, Eventkalender und responsivem Layout für alle Geräte.",
+    resultEn: "Pixel-perfect Figma implementation with cookie management, event calendar, and responsive layout across all devices.",
+    tech: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/Darmstadt",
+    liveUrl: "https://www.nbmotorsport.de/",
+    image: "/projects/nb-motorsport.png",
+    highlight: "Stack: Next.js 15, TypeScript, Tailwind CSS v4",
+    role: "Full-Stack Developer",
+  },
+  {
     title: "Bennna - Contractor Management SaaS",
     slug: "bennna",
     descriptionDe:

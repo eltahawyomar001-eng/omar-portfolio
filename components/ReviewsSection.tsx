@@ -11,6 +11,12 @@ interface Review {
 
 const reviews: Review[] = [
   {
+    quoteDe: "Ich bin extrem zufrieden mit der Arbeit an meiner Website. Omar war sehr professionell, reaktionsschnell und zuverlässig. Was wirklich herausstach, war seine Verfügbarkeit – er antwortete schnell und war fast rund um die Uhr erreichbar.",
+    quoteEn: "I am extremely satisfied with the work on my website. Omar was very professional, responsive, and reliable. What really stood out was his availability — he was fast to respond and almost available around the clock.",
+    labelDe: "NB Motorsport – Website-Entwicklung",
+    labelEn: "NB Motorsport – Website Development",
+  },
+  {
     quoteDe: "Phänomenaler Webdesigner/Entwickler. Aced my project. Moves quickly.",
     quoteEn: "Phenomenal web designer/developer. Aced my project. Moves quickly.",
     labelDe: "Brooklyn Vintage Car Club",
