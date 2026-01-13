@@ -173,12 +173,38 @@ export async function GET() {
             position: 'absolute',
             top: '40px',
             left: '60px',
-            fontSize: '18px',
-            color: 'white',
-            fontWeight: '400',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
           }}
         >
-          Omar Rageh
+          <div
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '22px',
+              color: 'white',
+              fontWeight: '300',
+              fontFamily: 'serif',
+            }}
+          >
+            O
+          </div>
+          <span
+            style={{
+              fontSize: '18px',
+              color: 'white',
+              fontWeight: '400',
+            }}
+          >
+            Omar Rageh
+          </span>
         </div>
         <div
           style={{
