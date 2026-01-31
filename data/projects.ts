@@ -207,22 +207,6 @@ export const projects: Project[] = [
     role: "Solo Project",
   },
   {
-    title: "Salla Analytics Dashboard",
-    slug: "salla-analytics",
-    descriptionDe:
-      "Ein umfassendes Analyse-Dashboard für die Salla E-Commerce-Plattform. Verkaufskennzahlen, Kundenverhalten und Produktleistung mit interaktiven Visualisierungen verfolgen.",
-    description:
-      "A comprehensive analytics dashboard for Salla e-commerce platform. Track sales metrics, customer behavior, and product performance with interactive visualizations.",
-    resultDe: "Echtzeit-Analysen mit interaktiven Datenvisualisierungen für bessere Geschäftsentscheidungen.",
-    resultEn: "Real-time analytics with interactive data visualizations for better business decisions.",
-    tech: ["Python", "Streamlit", "Pandas", "Data Analysis", "SQL"],
-    githubUrl: "https://github.com/eltahawyomar001-eng/salla-analytics",
-    liveUrl: "https://salla-analytics-production.up.railway.app/",
-    image: "/projects/salla-analytics.png",
-    highlight: "Stack: Python, Streamlit, Pandas, SQL",
-    role: "Full-stack Developer",
-  },
-  {
     title: "WEBKRAFT.DE Landing Page",
     slug: "webkraft-de",
     descriptionDe:
