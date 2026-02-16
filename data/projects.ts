@@ -15,6 +15,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "SchichtPlan - Intelligente Schichtplanung",
+    slug: "schichtplan",
+    descriptionDe:
+      "Moderne SaaS-Plattform zur Schichtplanung, Mitarbeiterverwaltung und Standortorganisation für den deutschen Markt. Drag & Drop, automatische Konflikterkennung und Lohnabrechnung.",
+    description:
+      "Modern SaaS platform for shift planning, employee management, and location organization for the German market. Drag & drop, automatic conflict detection, and payroll reports.",
+    resultDe: "Vollständige SaaS-Anwendung mit Landing Page, Auth-System, Dashboard, Mitarbeiterverwaltung, Wochenkalender und CSV/DATEV-Export.",
+    resultEn: "Complete SaaS application with landing page, auth system, dashboard, employee management, weekly calendar, and CSV/DATEV export.",
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "NextAuth", "Stripe"],
+    githubUrl: "https://github.com/eltahawyomar001-eng/SchichtPlan",
+    liveUrl: "https://schichtplan-wine.vercel.app/",
+    image: "/projects/schichtplan.png",
+    highlight: "Stack: Next.js 16, TypeScript, Prisma, PostgreSQL, Stripe",
+    role: "Full-Stack Developer",
+  },
+  {
     title: "NB Motorsport - Lenzokart Importeur Deutschland",
     slug: "nb-motorsport",
     descriptionDe:
